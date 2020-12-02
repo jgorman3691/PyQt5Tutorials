@@ -1,0 +1,10 @@
+{
+   "python.pythonPath": "C:\\ProgramData\\Miniconda3\\envs\\exp\\python.exe",
+   "cSpell.words": [
+      "mutex"
+   ],
+   "files.autoSave": "onFocusChange",
+   "editor.mouseWheelScrollSensitivity": 2,
+   "python.linting.pylintEnabled": true,
+   "python.linting.enabled": true
+}
