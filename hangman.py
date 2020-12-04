@@ -1,7 +1,7 @@
 #! python3
 
-from Tkinter import *
-from ttk import *
+from tkinter import *
+from tkinter.ttk import *
 from random import *
 word = 0
 wordLength = 0
@@ -68,122 +68,127 @@ Topics = {
 "Food" : food
 }
 
+def start():
+   print("Let's play a game of hangman...")
+   while gui():
+      pass
+
 def gui():
    global word, wordLength, clue
-   dictionary = categories()
-   word = choice(dictionary)
+
+   def categories():
+      global Topics
+      categoryNumber = -1
+      cats = list(Topics.keys())
+      while categoryNumber != range(1,6):
+         print("Please choose a category:")
+         for i in range(1,6):
+            print("{}: {}".format(i, cats[i]))
+         print("Please enter a number:")
+         categoryNumber = input()
+         if categoryNumber != range(1,6):
+            print("Please choose a number from the list.")
+         else:
+            n = random.randint(0,6)
+            return Topics["Choices"][categoryNumber][n]
+
+   word = categories()
    wordLength = len(word)
    clue = wordLength * ["_"]
    tries = 7
 
    def hangedman(hangman):
       graphic = [
-   """
+      """
 
-       +-------+
-       |       
-       |
-       |
-       |
-       |
-    ===============
-    """,
-    """
+         +-------+
+         |
+         |
+         |
+         |
+         |
+      ===============
+      """,
+      """
 
-       +-------+
-       |       |
-       |       
-       |
-       |
-       |
-    ===============
-    """,
-    """
+         +-------+
+         |       |
+         |
+         |
+         |
+         |
+      ===============
+      """,
+      """
 
-       +-------+
-       |       |
-       |       O
-       |       
-       |
-       |
-    ===============
-    """,
-    """
+         +-------+
+         |       |
+         |       O
+         |
+         |
+         |
+      ===============
+      """,
+      """
 
-       +-------+
-       |       |
-       |       O
-       |       |
-       |
-       |
-    ===============
-    """,
-    """
+         +-------+
+         |       |
+         |       O
+         |       |
+         |
+         |
+      ===============
+      """,
+      """
 
-       +-------+
-       |       |
-       |       O
-       |      -|
-       |
-       |
-    ===============
-    """,
-    """
+         +-------+
+         |       |
+         |       O
+         |      -|
+         |
+         |
+      ===============
+      """,
+      """
 
-       +-------+
-       |       |
-       |       O
-       |      -|-
-       |
-       |
-    ===============
-    """,
-    """
+         +-------+
+         |       |
+         |       O
+         |      -|-
+         |
+         |
+      ===============
+      """,
+      """
 
-       +-------+
-       |       |
-       |       O
-       |      -|-
-       |      /
-       |
-    ===============
-    """,
-    """
+      +-------+
+      |       |
+      |       O
+      |      -|-
+      |      /
+      |
+      ===============
+      """,
+      """
 
-       +-------+
-       |       |
-       |       O
-       |      -|-
-       |      / \
-       |
-    ===============
-    """
-    ]
+      +-------+
+      |       |
+      |       O
+      |      -|-
+      |      / \
+      |
+      ===============
+      """
+      ]
       graphicSet = graphic[hangman]
       hmGraphic.set(graphicSet)
-
-   def categories():
-      categoryNumber = 0
-      while categoryNumber == 0:
-         print("Please choose a category:")
-         print("1: Linux")
-         print("2: Recovery")
-         print("3: Mathematics")
-         print("4: Winter")
-         print("5: Food")
-         print("Enter a number:")
-         categoryNumber = input()
-         if categoryNumber not in choices.keys():
-            print("Please choose a number from the list.")
-         else:
-            given = random.choice(Topics[choices][categoryNumber].value())
 
    def game():
       lettersWrong = incorrectGuesses.get()
       letter = guessLetter()
       firstIndex = word.find(letter)
       if firstIndex == -1:
-         lettersWrong. += 1
+         lettersWrong += 1
          incorrectGuesses.set(lettersWrong)
       else:
          for i in range(wordLength):

@@ -1,7 +1,11 @@
 {
-   "python.pythonPath": "C:\\ProgramData\\Miniconda3\\envs\\exp\\python.exe",
+   "python.pythonPath": "C:\\Users\\jedgo\\Python\\Python38\\python.exe",
    "cSpell.words": [
-      "mutex"
+      "groupby",
+      "itertools",
+      "mutex",
+      "padx",
+      "pady"
    ],
    "files.autoSave": "onFocusChange",
    "editor.mouseWheelScrollSensitivity": 2,

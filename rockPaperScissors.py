@@ -1,7 +1,7 @@
 #! python3
 
-from TKinter import *
-from ttk import *
+from tkinter import *
+from tkinter.ttk import *
 import random
 
 def gui():
@@ -9,22 +9,23 @@ def gui():
    rock = 1
    paper = 2
    scissors = 3
-   names =
-   {
-         rock : 'Rock',
-         paper : 'Paper',
-         scissors: 'Scissors'
+   names = {
+   rock : 'Rock',
+   paper : 'Paper',
+   scissors: 'Scissors'
    }
-   rules =
-   {
-         rock : scissors,
-         paper : rock,
-         scissors : paper
+   rules = {
+   rock : scissors,
+   paper : rock,
+   scissors : paper
    }
 
    def start():
       while game():
          pass
+
+   def playAgain():
+      anotherRound.set("Would you like to play again?")
 
 
    def game():
@@ -32,7 +33,7 @@ def gui():
       computer = random.randint(1, 3)
       computerChoice.set(names[computer])
       result(player, computer)
-      return play_again()
+      return playAgain()
 
 
    def result(player, computer):
@@ -57,6 +58,7 @@ def gui():
    playerChoice = IntVar()
    computerChoice = StringVar()
    resultSet = StringVar()
+   anotherRound = StringVar()
    playerChoice.set(1)
    playerScore = IntVar()
    computerScore = IntVar()
@@ -83,6 +85,11 @@ def gui():
    Label(rpsFrame, textvariable=computerScore).grid(column=3, row=6, sticky=W)
 
    Label(rpsFrame, textvariable=resultSet).grid(column=2, row=7)
+
+   Label(rpsFrame, text="Play Again?").grid(column = 2, row = 8, sticky=S)
+   Label(rpsFrame, textvariable = anotherRound).grid(column = 2, row = 9, sticky=S)
+   Button(rpsFrame, text="Play", command = start).grid(column = 1, row = 10, sticky=SW)
+   Button(rpsFrame, text="Quit", command = rpsWindow.destroy).grid(column=3, row=10, sticky=SE)
 
 if __name__ == '__main__':
    gui()

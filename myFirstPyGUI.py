@@ -1,5 +1,5 @@
-#! python3
-from Tkinter import *
+#!python3
+from tkinter import *
 
 import rockPaperScissors
 import hangman
@@ -21,13 +21,14 @@ intro.pack(side = TOP)
 rpsButton = Button(mainFrame, text = "Rock, Paper, Scissors", command = rockPaperScissors.gui)
 rpsButton.pack()
 
-hmButton = Button(mainFrame, text = "Hangman", command = hangman.start)
+hmButton = Button(mainFrame, text = "Hangman", command = hangman.gui)
 hmButton.pack()
 
-pdButton = Button(mainFrame, text = "Poker Dice", command = pokerDice.start)
+pdButton = Button(mainFrame, text = "Poker Dice", command = pokerDice.gui)
+pdButton.pack()
 
-exitButton = Button(mainFrame,text="Quit",command=root.destroy)
-exitButton..pack(side = BOTTOM)
+exitButton = Button(mainFrame,text="Quit", command = root.destroy)
+exitButton.pack(side = BOTTOM)
 
 root.mainloop()
 

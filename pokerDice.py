@@ -3,10 +3,16 @@
 import random
 from itertools import groupby
 
-from Tkinter import *
-from ttk import *
+from tkinter import *
+from tkinter.ttk import *
 
 dice = 0
+
+def start():
+   print("The computer will help you with throwing your 5 dice.")
+   while pdWindow.exists():
+      gui.game()
+      pass
 
 def roll(rollNumber):
    numbers = range(1,7)
@@ -51,8 +57,7 @@ def gui():
    queen = 4
    king = 5
    ace = 6
-   names =
-   {
+   names = {
    nine : "9",
    ten : "10",
    jack : "J",
@@ -64,11 +69,6 @@ def gui():
 
    def game():
       throws()
-
-def start():
-   print("The computer will help you with throwing your 5 dice.")
-   throws()
-   return playAgain()
 
    def throws():
       global dice
@@ -90,7 +90,7 @@ def start():
             diceChanges = range(len(diceRerolls))
             iterations = 0
             while iterations < rollNumber:
-               iterations++
+               iterations += 1
                replacement = numberRerolls[iterations - 1]
                dice[diceChanges[iterations - 1]] = replacement
             dice.sort()
@@ -110,7 +110,7 @@ def start():
          emptyDice[i] = names[dice[i]]
       firstDice = " ".join(emptyDice)
       diceOutput.set(firstDice)
-      result = "You have " = hand(dice)
+      result = "You have " + hand(dice)
       handOutput.set(result)
 
    pdWindow = Toplevel()
@@ -146,6 +146,7 @@ def start():
    reroll5 = Checkbutton(pdFrame, text = "5", variable = dice5, onValue = 5, offValue = 0).grid(column = 5, row = 5)
    pdRerollButton = Button(pdFrame, text = "Reroll", command = game).grid(column = 3, row = 6)
    replayButton = Button(pdFrame, text = "Reset", command = resetGame).grid(column = 3, row = 7)
+   quitButton = Button(pdFrame, text = "Quit", command = pdWindow.destroy).grid(column = 3, row = 8)
 
 if __name__ == '__main__':
    gui()
