@@ -5,10 +5,24 @@
       "itertools",
       "mutex",
       "padx",
-      "pady"
+      "pady",
+      "pyautogui"
    ],
    "files.autoSave": "onFocusChange",
    "editor.mouseWheelScrollSensitivity": 2,
    "python.linting.pylintEnabled": true,
-   "python.linting.enabled": true
+   "python.linting.enabled": true,
+   "git.autofetch": true,
+   "jupyter.allowUnauthorizedRemoteConnection": true,
+   "jupyter.alwaysScrollOnNewCell": true,
+   "jupyter.changeDirOnImportExport": true,
+   "jupyter.jupyterLaunchTimeout": 6000,
+   "jupyter.sendSelectionToInteractiveWindow": true,
+   "jupyter.themeMatplotlibPlots": true,
+   "projectManager.any.maxDepthRecursion": -1,
+   "python.analysis.diagnosticMode": "workspace",
+   "python.analysis.typeCheckingMode": "basic",
+   "python.autoComplete.addBrackets": true,
+   "python.formatting.provider": "yapf",
+   "python.globalModuleInstallation": true
 }
